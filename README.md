@@ -3,7 +3,7 @@
 <div align="center">
   https://manuelbot59.github.io/Linkedin-Timestamps/
 <br> <br>
-  <img src="./images/linkedin-timestamps.jpg" width="600" height="300"/>
+  <img src="./images/linkedin-timestamps.jpg" width="600" height="270"/>
 </div>
 <br>
 SOCMINT tool that provides the creation date of Linkedin posts. It can also work with posts that have been deleted.
