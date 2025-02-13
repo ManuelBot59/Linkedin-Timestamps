@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <title>SOCMINT. Linkedin Timestamps - Linkedin Post Date Extractor</title>
+    <link rel="icon" href="images/linkedin.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/linkedin.ico" type="image/x-icon" />	
+	  
+	<meta charset="UTF-8">
+	<meta name="languageCode" content="en"/>
+	<meta name="countryCode" content="pe"/>
+	<meta name="searchTitle" content="Get creation date of linkedin posts"/>
+	<meta name="description" content="SOCMINT tool that provides the creation date of Linkedin posts. It can also work with posts that have been deleted."/>
+	<meta property="og:title" content="Linkedin Timestamps">
+	<meta property="og:description" content="Get creation date of linkedin posts">
+	<meta property="og:image" content="/">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="keywords" content="osint, geoint, imint, tiktok, humint, socmint, Threat intelligence, investigar en internet, investigación, inteligencia, linkedin, ciberinteligencia, analista, investigar correos, manuel travezaño, manuelbot, manuelbot59, telefono osint, research, cyberint, osint perú, manuel osint, trave osint, ciber" />
+	<meta name="author" content="manuel travezaño, manuelbot59, travezaño" />
+	<meta name="robots" content="index, follow"/>	  
+    <style>
+      body {
+        margin: 1em;
+        font-family: "Helvetica", Arial, sans-serif;
+        font-size: 18px;
+      }
+      button, input {
+          font-size: 16px;
+      }
+      .form {
+          margin-bottom: 1em;
+      }
+      .timezone-output {
+          margin-top: 1em;
+          padding: 0.5em;
+          border-top: 1px solid #ccc;
+      }
+      .timezone-output p {
+          margin: 0.5em 0;
+      }
+    </style>
+	<script type="text/javascript" src="css/extractor.js"></script>
+  </head>
+  <body>
+	<img src="./images/linkedin-timestamps.jpg" width="685" height="285" alt="Timestamp TikTok"/><br>    
+	  
+<h2>Get the date of creation of Linkedin publications</h2>
+	 
+   <div class="form">
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" />
+        <button onclick="getDate()">Get publication date</button>
+        <button onclick="clearUrlField()">Clear URL</button>
+    </div>
+    
+    <div class="output">
+        <span><strong>UTC Time Zone:</strong> </span>
+        <span id="date"></span><br><br>
+        <span><strong> Your time zone (<span id="timezone"></span>):</strong> </span>
+        <span id="localtime"></span>
+    </div>
+
+    <script>
+        function detectTimezone() {
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const offset = new Date().getTimezoneOffset();
+            const offsetHours = Math.abs(offset / 60);
+            const offsetSign = offset > 0 ? "-" : "+";
+            const formattedOffset = `UTC${offsetSign}${offsetHours}`;
+            document.getElementById("timezone").innerText = `${formattedOffset} (${timeZone})`;
+        }
+
+        function convertTimezone() {
+            const utcDate = document.getElementById("date").innerText;
+            if (!utcDate) return;
+            
+            const dateObject = new Date(utcDate);
+            const options = { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.getElementById("localtime").innerText = new Intl.DateTimeFormat('es-ES', options).format(dateObject);
+        }
+
+        window.onload = detectTimezone;
+    </script>	  
+
+<br><br>
+<strong>NOTE:</strong>
+  This repository has been modified from the original script: 
+  <a href="https://github.com/ollie-boyd/Linkedin-post-timestamp-extractor" target="_blank">Linkedin-post-timestamp-extractor</a>.
+
+<h4>Follow me:</h4>
+	  <div class="social-links">
+  <a href="https://manuelbot59.github.io/" target="_blank">
+    <img src="https://manuelbot59.github.io/images/ManuelBot59.png" alt="ManuelBot59 en Twitter" style="width:40px;height:40px;vertical-align:middle;margin-right:8px;">My official website
+  </a>
+  <br>
+	
+</div>
+<div class="social-links">
+  <a href="https://twitter.com/ManuelBot59" target="_blank">
+    <img src="./images/x.png" alt="ManuelBot59 en Twitter" style="width:40px;height:40px;vertical-align:middle;margin-right:8px;">X (Twitter)
+  </a>
+  <br>
+	
+</div>
+
+<p>
+  Connect with me and discover the power of Open Source INTelligence <strong>(OSINT)</strong> and Social Media INTelligence <strong>(SOCMINT)</strong> to make the most of the amount exposed on the internet and create or produce intelligence.
+</p>
+
+    <script>
+        function detectTimezone() {
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const offset = new Date().getTimezoneOffset();
+            const offsetHours = Math.abs(offset / 60);
+            const offsetSign = offset > 0 ? "-" : "+";
+            const formattedOffset = `UTC${offsetSign}${offsetHours}`;
+            document.getElementById("timezone").innerText = `${formattedOffset} (${timeZone})`;
+        }
+
+        function convertTimezone() {
+            const utcDate = document.getElementById("date").innerText;
+            if (!utcDate) return;
+            
+            const dateObject = new Date(utcDate);
+            const options = { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            
+            document.getElementById("localtime").innerText = new Intl.DateTimeFormat('es-ES', options).format(dateObject);
+        }
+
+        window.onload = detectTimezone;
+    </script>
+    </body>
+</html>
