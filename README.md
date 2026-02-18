@@ -1,7 +1,7 @@
-# Get the date of creation of Linkedin publications
+# OSINT resource moved to new website
 
 <div align="center">
-  https://manuelbot59.github.io/Linkedin-Timestamps/
+  https://whatsmyname.streamlit.app/
 <br> <br>
   <img src="./images/linkedin-timestamps.jpg" width="600" height="270"/>
 </div>
